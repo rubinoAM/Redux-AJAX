@@ -15,9 +15,9 @@ function stockReducer(state = null,action){ //1
     //switch = an alternate to if statements
 
     switch(action.type){
-        case "GET_WEATHER":
+        case "GET_STOCKS":
             return state;
-        case "CLEAR_WEATHER":
+        case "CLEAR_STOCKS":
             return null;
         default: //Basically an else
             return state;
