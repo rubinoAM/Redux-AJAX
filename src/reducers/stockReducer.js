@@ -23,3 +23,5 @@ function stockReducer(state = null,action){ //1
             return state;
     }
 }
+
+export default stockReducer;
