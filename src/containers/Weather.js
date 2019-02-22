@@ -8,7 +8,6 @@ class Weather extends Component{
     }
 
     render(){
-        console.log(this.props.weatherData);
         return(
             <h1>WEATHER</h1>
         )

@@ -3,11 +3,18 @@ import React, {Component} from 'react';
     because it needs to fire a function the dispatcher will send to update
     the weather reducer when the user searches */
 import { connect } from 'react-redux';
-import weatherReducer from '../reducers/weatherReducer';
+import { bindActionCreators } from 'redux';
+import fetchWeather from '../actions/fetchWeather';
 
 class SearchBar extends Component{
     constructor(){
         super()
+    }
+
+    handleWeather = (e)=>{
+        e.preventDefault();
+        const zip = document.getElementById('weather-input').value;
+        this.props.fetchWeather(zip);
     }
 
     render(){
@@ -40,4 +47,10 @@ class SearchBar extends Component{
     }
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatcher){
+    return bindActionCreators({
+        fetchWeather: fetchWeather,
+    }, dispatcher);
+}
+
+export default connect(null,mapDispatchToProps)(SearchBar);
