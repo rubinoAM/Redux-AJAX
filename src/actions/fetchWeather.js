@@ -1,7 +1,8 @@
 import axios from 'axios';
+import APIKEY from '../config';
 
-const APIKEY = '482c145ce8edf1d69ea5168f9d06460c';
-const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=${APIKEY}&zip=`;
+const apiKey = APIKEY;
+const weatherUrl = `http://api.openweathermap.org/data/2.5/weather?units=imperial&appid=${apiKey}&zip=`;
 
 function fetchWeather(zip){
     console.log(zip);
