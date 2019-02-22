@@ -17,14 +17,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import {Provider} from 'react-redux'; //1
-import {createStore} from 'redux'; //2
+import { Provider } from 'react-redux'; //1
+import { createStore,applyMiddleware } from 'redux'; //2 & 8
 import reducers from './reducers/index'; //3
+import reduxPromise from 'redux-promise'; //9
 
-const theStore = createStore(reducers); //6
+//const theStore = createStore(reducers); //6
+const theStoreWithMiddleware = applyMiddleware(reduxPromise)(createStore)(reducers);
 
 ReactDOM.render(
-    <Provider store={theStore}>
+    <Provider store={theStoreWithMiddleware}>
         <App />
     </Provider>, 
     document.getElementById('root')
