@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+/*  SearchBar doesn't need state, but it needs the dispatcher
+    because it needs to fire a function the dispatcher will send to update
+    the weather reducer when the user searches */
+import { connect } from 'react-redux';
+import weatherReducer from '../reducers/weatherReducer';
 
 class SearchBar extends Component{
     constructor(){
